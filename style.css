@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    background-color: rgb(21, 21, 21);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+.start {
+    background-color: rgb(170, 171, 171);
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cardboard {
+    display: flex;
+    flex-wrap: wrap;
+    width: 430px;
+    height: 430px;
+    border: 2px white solid;
+    gap: 10px;
+}
+
+.card {
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    background-color: aquamarine;
+    color: aquamarine;
+    transform: rotateY(180deg);
+    transition: .5s;
+
+}
+
+.flip {
+    transform: rotateY(360deg);
+    transition: .5s;
+    color: black;
+}

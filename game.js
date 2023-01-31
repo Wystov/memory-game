@@ -2,7 +2,10 @@ const startBtn = document.querySelector('.start');
 startBtn.addEventListener('click', createCardBoard);
 const cardBoard = document.querySelector('.cardboard');
 const showTurns = document.querySelector('.turns');
-const cardboardSize = 8;
+const radio = document.querySelectorAll('input[name=size]');
+radio.forEach(x => x.addEventListener('click', fieldSelect));
+let cardboardSize = 8;
+console.log(cardboardSize);
 const cardboardContent = [];
 const queue = [];
 let turns = 0;
@@ -60,4 +63,10 @@ function createCardBoard() {
         cardBoard.append(card);
         card.addEventListener('click', flip);
     })
+}
+
+function fieldSelect() {
+    cardboardSize = this.value * this.value / 2;
+    if (cardboardSize === 8) cardBoard.style.width = '430px';
+    if (cardboardSize === 18) cardBoard.style.width = '680px';
 }

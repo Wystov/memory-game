@@ -22,8 +22,6 @@
     display: flex;
     flex-wrap: wrap;
     width: 430px;
-    height: 430px;
-    border: 2px white solid;
     gap: 10px;
 }
 
@@ -32,6 +30,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
     width: 100px;
     height: 100px;
     cursor: pointer;

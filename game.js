@@ -4,9 +4,9 @@ const cardBoard = document.querySelector('.cardboard');
 const showTurns = document.querySelector('.turns');
 const cardboardSize = 8;
 const cardboardContent = [];
-let lastOpen = 0;
-let curOpen = 0;
+const queue = [];
 let turns = 0;
+
 
 function shuffle() {
     cardboardContent.length = 0;
@@ -19,21 +19,35 @@ function shuffle() {
 }
 
 function flip() {
-    !lastOpen ? (curOpen = this.textContent, lastOpen = this.textContent) :
-                (lastOpen = curOpen, curOpen = this.textContent);
-    this.classList.add('flip');
-    turns += 1;
-    showTurns.textContent = turns;
-    if (lastOpen === curOpen && turns > 1) { 
-        document.querySelectorAll(`number-${lastOpen}`).forEach(x => {
-            x.classList.add('flip');
-        })
-    } else {
-        setTimeout(() => {
-            this.classList.remove('flip')
-        }, 1500)
+    if (!this.classList.contains('flip')) {
+        queue.push(this.classList[1]);
+        turns += 1;
+        showTurns.textContent = turns;
+        if (turns > 1) checkFlip();
+        this.classList.add('flip');
     }
 }
+
+function checkFlip() {
+    if (queue[0] === queue[1]) { 
+        document.querySelectorAll(`.${queue[0]}`).forEach(x => {
+            x.classList.add('flip');
+        })
+        queue.shift();
+        queue.shift();
+    }
+    if (queue[0] !== queue[1] && queue.length > 2) {
+        document.querySelectorAll(`.${queue[1]}`).forEach(x => {
+            x.classList.remove('flip');
+        });
+        document.querySelectorAll(`.${queue[0]}`).forEach(x => {
+            x.classList.remove('flip');
+        });
+        queue.shift();
+        queue.shift();
+    }
+}
+
 
 function createCardBoard() {
     cardBoard.innerHTML = '';

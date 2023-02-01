@@ -3,6 +3,7 @@ startBtn.addEventListener('click', createCardBoard);
 const cardBoard = document.querySelector('.cardboard');
 const showTurns = document.querySelector('.turns');
 const radio = document.querySelectorAll('input[name=size]');
+const prevBest = document.querySelector('.prev-best');
 radio.forEach(x => x.addEventListener('click', fieldSelect));
 let cardboardSize = 8;
 const cardboardContent = [];
@@ -40,9 +41,6 @@ function checkFlip() {
         if (match === cardboardSize * 2) {
             showTurns.textContent = `WIN IN ${turns} FLIPS!`;
             let best = localStorage.getItem('best') || 999;
-            if (localStorage.getItem('best')) {
-                showTurns.textContent += `Previous best is ${best}`;
-            }
             if (!localStorage.getItem('best') || turns < best) {
                 localStorage.setItem('best', turns);
             }
@@ -66,6 +64,9 @@ function checkFlip() {
 function createCardBoard() {
     cardBoard.innerHTML = '';
     shuffle();
+    if (localStorage.getItem('best')) {
+        prevBest.textContent = `Previous best is ${localStorage.getItem('best')}`;
+    }
     cardboardContent.forEach(x => {
         const card = document.createElement('div');
         card.classList.add('card');

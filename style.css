@@ -34,7 +34,7 @@
     border-radius: 10px;
     cursor: pointer;
     margin-bottom: 10px;
-    transition: .5s;
+    transition: .3s;
 }
 
 .cardboard {
@@ -47,13 +47,13 @@
     max-height: 0;
     overflow: hidden;
     gap: 10px;
-    transition: .5s;
+    transition: .3s;
 }
 
 .cardboard-active {
     max-height: 70vh;
     max-width: 70vh;
-    transition: .5s;
+    transition: .3s;
 }
 
 .card {
@@ -65,6 +65,7 @@
     cursor: pointer;
     background-color: #36454f;
     color: #36454f;
+    -webkit-tap-highlight-color: transparent;
     transform: rotateY(180deg);
     transition: .5s;
 }

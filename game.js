@@ -91,7 +91,7 @@ function createCardBoard() {
             }
             showTurns.textContent = `Flips: ${turns}`;
             })
-    }, 500);
+    }, 300);
 
     
 }

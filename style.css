@@ -33,7 +33,7 @@
     font-weight: 700;
     border-radius: 10px;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin: 20px 0 10px;
     transition: .3s;
 }
 
@@ -86,6 +86,9 @@ label {
     margin: 0 9px;
 }
 
+.prev-best {
+    margin-bottom: 20px;
+}
 .turns,
 .prev-best {
     color: #1C1C1C;

@@ -59,6 +59,8 @@ function createCardBoard() {
         const card = document.createElement('div');
         card.classList.add('card');
         card.classList.add(`number-${x}`);
+        const cardSize = cardboardSize === 8 ? 22 : 14;
+        card.setAttribute('style', `width: ${cardSize}%; padding: ${cardSize / 2}% 0`);
         card.innerHTML = x;
         cardBoard.append(card);
         card.addEventListener('click', flip);
@@ -67,6 +69,4 @@ function createCardBoard() {
 
 function fieldSelect() {
     cardboardSize = this.value * this.value / 2;
-    if (cardboardSize === 8) cardBoard.style.width = '430px';
-    if (cardboardSize === 18) cardBoard.style.width = '680px';
 }

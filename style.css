@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     user-select: none;
+    font-family: roboto, sans-serif;
+    letter-spacing: 2px;
 }
 
 .wrapper {
-    background-color: rgb(21, 21, 21);
+    background-color: #1C1C1C;
     color: white;
     display: flex;
     justify-content: center;
@@ -23,11 +27,14 @@
 }
 
 .start {
-    background-color: rgb(170, 171, 171);
-    padding: 5px 10px;
+    background-color: #FADF00;
+    padding: 11px 16px;
+    color: #1C1C1C;
+    font-weight: 700;
     border-radius: 10px;
     cursor: pointer;
     margin-bottom: 10px;
+    transition: .5s;
 }
 
 .cardboard {
@@ -36,9 +43,17 @@
     justify-content: center;
     align-content: center;
     margin: 20px;
-    width: 70vh;
-    height: 70vh;
+    max-width: 0;
+    max-height: 0;
+    overflow: hidden;
     gap: 10px;
+    transition: .5s;
+}
+
+.cardboard-active {
+    max-height: 70vh;
+    max-width: 70vh;
+    transition: .5s;
 }
 
 .card {
@@ -48,8 +63,8 @@
     align-items: center;
     height: 0;
     cursor: pointer;
-    background-color: aquamarine;
-    color: aquamarine;
+    background-color: #36454f;
+    color: #36454f;
     transform: rotateY(180deg);
     transition: .5s;
 }
@@ -57,20 +72,38 @@
 .flip {
     transform: rotateY(360deg);
     transition: .5s;
-    color: black;
+    color: #ffffff;
 }
 
 .match {
-    background-color: gold;
+    background-color:#FADF00;
+    color: #1C1C1C;
 }
 
 label {
     cursor: pointer;
+    margin: 0 9px;
+}
+
+.turns,
+.prev-best {
+    color: #1C1C1C;
+    transition: .5s;
+}
+
+.turns-active,
+.prev-best-active {
+    color: #ffffff;
+    transition: .5s;
 }
 
 @media (max-width: 500px) {
     .cardboard {
-        width: 90vw;
-        height: 90vw;
+        max-width: 0;
+        max-height: 0;
     }
-  }
+    .cardboard-active {
+        max-height: 90vw;
+        max-width: 90vw;
+    }
+}

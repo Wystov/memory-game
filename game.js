@@ -1,5 +1,6 @@
 const startBtn = document.querySelector('.start');
 startBtn.addEventListener('click', createCardBoard);
+startBtn.addEventListener('click', dancingButton);
 const cardBoard = document.querySelector('.cardboard');
 const showTurns = document.querySelector('.turns');
 const radio = document.querySelectorAll('input[name=size]');
@@ -10,14 +11,18 @@ const cardboardContent = [];
 const queue = [];
 let turns = 0;
 let match = 0;
+let rotation = 360;
 
+function dancingButton() {
+    startBtn.style = `transform: rotate(${rotation}deg)`;
+    rotation += 360;
+}
 
 function shuffle() {
     cardboardContent.length = 0;
     turns = 0;
     match = 0;
-    showTurns.textContent = `Flips: ${turns}`;
-    prevBest.textContent = '';
+    prevBest.textContent = "\u00A0";
     for (let i = 1; i <= cardboardSize; i++) {
         cardboardContent.push(i, i);
     }
@@ -63,21 +68,32 @@ function checkFlip() {
 
 
 function createCardBoard() {
-    cardBoard.innerHTML = '';
-    shuffle();
-    if (localStorage.getItem(`best-${cardboardSize}`)) {
-        prevBest.textContent = `Previous best is ${localStorage.getItem(`best-${cardboardSize}`)}`;
-    }
-    cardboardContent.forEach(x => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.classList.add(`number-${x}`);
-        const cardSize = cardboardSize === 8 ? 22 : 14;
-        card.setAttribute('style', `width: ${cardSize}%; padding: ${cardSize / 2}% 0`);
-        card.innerHTML = x;
-        cardBoard.append(card);
-        card.addEventListener('click', flip);
-    })
+    cardBoard.classList.remove('cardboard-active');
+    showTurns.classList.remove('turns-active');
+    prevBest.classList.remove('prev-best-active');
+    setTimeout(() => {
+        cardBoard.classList.add('cardboard-active');
+        cardBoard.innerHTML = '';
+        shuffle();
+        cardboardContent.forEach(x => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.classList.add(`number-${x}`);
+            const cardSize = cardboardSize === 8 ? 22 : 14;
+            card.setAttribute('style', `width: ${cardSize}%; padding: ${cardSize / 2}% 0`);
+            card.innerHTML = x;
+            cardBoard.append(card);
+            card.addEventListener('click', flip);
+            showTurns.classList.add('turns-active');
+            prevBest.classList.add('prev-best-active');
+            if (localStorage.getItem(`best-${cardboardSize}`)) {
+                prevBest.textContent = `Previous best is ${localStorage.getItem(`best-${cardboardSize}`)}`;
+            }
+            showTurns.textContent = `Flips: ${turns}`;
+            })
+    }, 500);
+
+    
 }
 
 function fieldSelect() {

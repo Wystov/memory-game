@@ -39,6 +39,15 @@
     transition: .3s;
 }
 
+.settings {
+    display: flex;
+    font-size: 20px;
+}
+
+.field-size {
+    border-right: 3px solid white;
+}
+
 .cardboard {
     display: flex;
     flex-wrap: wrap;
@@ -66,16 +75,25 @@
     height: 0;
     cursor: pointer;
     background-color: #36454f;
-    color: #36454f;
+    color: #ffffff;
     -webkit-tap-highlight-color: transparent;
     transform: rotateY(180deg);
     transition: .5s;
 }
 
+.card-content {
+    opacity: 0;
+    transition: 1s;
+}
+
 .flip {
     transform: rotateY(360deg);
     transition: .5s;
-    color: #ffffff;
+}
+
+.flip .card-content {
+    opacity: 1;
+    transition: 1s;
 }
 
 .match {

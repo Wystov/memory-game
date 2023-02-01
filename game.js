@@ -9,6 +9,7 @@ console.log(cardboardSize);
 const cardboardContent = [];
 const queue = [];
 let turns = 0;
+let match = 0;
 
 
 function shuffle() {
@@ -34,8 +35,10 @@ function flip() {
 function checkFlip() {
     if (queue[0] === queue[1]) { 
         document.querySelectorAll(`.${queue[0]}`).forEach(x => {
-            x.classList.add('flip');
-        })
+            x.classList.add('flip', 'match')});
+        match += 2;
+        if (match === cardboardSize * 2) showTurns.textContent = `WIN IN ${turns} FLIPS!`;
+        console.log(match)
         queue.shift();
         queue.shift();
     }

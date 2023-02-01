@@ -17,6 +17,7 @@ function shuffle() {
     turns = 0;
     match = 0;
     showTurns.textContent = `Flips: ${turns}`;
+    prevBest.textContent = '';
     for (let i = 1; i <= cardboardSize; i++) {
         cardboardContent.push(i, i);
     }
@@ -40,9 +41,9 @@ function checkFlip() {
         match += 2;
         if (match === cardboardSize * 2) {
             showTurns.textContent = `WIN IN ${turns} FLIPS!`;
-            let best = localStorage.getItem('best') || 999;
-            if (!localStorage.getItem('best') || turns < best) {
-                localStorage.setItem('best', turns);
+            let best = localStorage.getItem(`best-${cardboardSize}`) || 999;
+            if (!localStorage.getItem(`best-${cardboardSize}`) || turns < best) {
+                localStorage.setItem(`best-${cardboardSize}`, turns);
             }
         }
         queue.shift();
@@ -64,8 +65,8 @@ function checkFlip() {
 function createCardBoard() {
     cardBoard.innerHTML = '';
     shuffle();
-    if (localStorage.getItem('best')) {
-        prevBest.textContent = `Previous best is ${localStorage.getItem('best')}`;
+    if (localStorage.getItem(`best-${cardboardSize}`)) {
+        prevBest.textContent = `Previous best is ${localStorage.getItem(`best-${cardboardSize}`)}`;
     }
     cardboardContent.forEach(x => {
         const card = document.createElement('div');

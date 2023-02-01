@@ -5,7 +5,6 @@ const showTurns = document.querySelector('.turns');
 const radio = document.querySelectorAll('input[name=size]');
 radio.forEach(x => x.addEventListener('click', fieldSelect));
 let cardboardSize = 8;
-console.log(cardboardSize);
 const cardboardContent = [];
 const queue = [];
 let turns = 0;
@@ -15,6 +14,7 @@ let match = 0;
 function shuffle() {
     cardboardContent.length = 0;
     turns = 0;
+    match = 0;
     showTurns.textContent = 0;
     for (let i = 1; i <= cardboardSize; i++) {
         cardboardContent.push(i, i);
@@ -38,7 +38,6 @@ function checkFlip() {
             x.classList.add('flip', 'match')});
         match += 2;
         if (match === cardboardSize * 2) showTurns.textContent = `WIN IN ${turns} FLIPS!`;
-        console.log(match)
         queue.shift();
         queue.shift();
     }

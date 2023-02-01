@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    user-select: none;
 }
 
 .wrapper {
@@ -45,14 +46,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    user-select: none;
     height: 0;
     cursor: pointer;
     background-color: aquamarine;
     color: aquamarine;
     transform: rotateY(180deg);
     transition: .5s;
-
 }
 
 .flip {
@@ -63,6 +62,10 @@
 
 .match {
     background-color: gold;
+}
+
+label {
+    cursor: pointer;
 }
 
 @media (max-width: 500px) {

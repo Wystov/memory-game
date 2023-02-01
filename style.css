@@ -14,7 +14,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     height: 100vh;
+    min-height: 520px;
     width: 100%;
     font-size: 30px;
 }
@@ -33,7 +35,7 @@
     font-weight: 700;
     border-radius: 10px;
     cursor: pointer;
-    margin: 20px 0 10px;
+    margin: 25px 0 10px;
     transition: .3s;
 }
 
@@ -102,6 +104,9 @@ label {
 }
 
 @media (max-width: 500px) {
+    .wrapper {
+        font-size: 20px;
+    }
     .cardboard {
         max-width: 0;
         max-height: 0;
@@ -109,5 +114,8 @@ label {
     .cardboard-active {
         max-height: 90vw;
         max-width: 90vw;
+    }
+    .card {
+        font-size: 24px;
     }
 }

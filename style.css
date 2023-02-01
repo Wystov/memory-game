@@ -57,3 +57,10 @@
     transition: .5s;
     color: black;
 }
+
+@media (max-width: 500px) {
+    .cardboard {
+        width: 90vw;
+        height: 90vw;
+    }
+  }

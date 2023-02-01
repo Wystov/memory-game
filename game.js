@@ -15,7 +15,7 @@ function shuffle() {
     cardboardContent.length = 0;
     turns = 0;
     match = 0;
-    showTurns.textContent = 0;
+    showTurns.textContent = `Flips: ${turns}`;
     for (let i = 1; i <= cardboardSize; i++) {
         cardboardContent.push(i, i);
     }
@@ -26,7 +26,7 @@ function flip() {
     if (!this.classList.contains('flip')) {
         queue.push(this.classList[1]);
         turns += 1;
-        showTurns.textContent = turns;
+        showTurns.textContent = `Flips: ${turns}`;
         if (turns > 1) checkFlip();
         this.classList.add('flip');
     }
@@ -37,7 +37,16 @@ function checkFlip() {
         document.querySelectorAll(`.${queue[0]}`).forEach(x => {
             x.classList.add('flip', 'match')});
         match += 2;
-        if (match === cardboardSize * 2) showTurns.textContent = `WIN IN ${turns} FLIPS!`;
+        if (match === cardboardSize * 2) {
+            showTurns.textContent = `WIN IN ${turns} FLIPS!`;
+            let best = localStorage.getItem('best') || 999;
+            if (localStorage.getItem('best')) {
+                showTurns.textContent += `Previous best is ${best}`;
+            }
+            if (!localStorage.getItem('best') || turns < best) {
+                localStorage.setItem('best', turns);
+            }
+        }
         queue.shift();
         queue.shift();
     }

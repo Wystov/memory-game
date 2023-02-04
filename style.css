@@ -40,15 +40,78 @@
     transition: .3s;
 }
 
-.settings {
+.icons {
     display: flex;
-    font-size: 20px;
+    justify-content: space-between;
+    min-width: 110px;
+}
+
+.settings-btn {
+    width: 24px;
+    height: 24px;
+    background: url('./img/settings.svg') center / 24px no-repeat;
+}
+
+.top-btn {
+    width: 24px;
+    height: 24px;
+    background: url('./img/top.svg') center / 24px no-repeat;
+}
+
+.settings {
+    max-height: 0;
+    width: 150px;
+    visibility: hidden;
+    overflow: hidden;
+    font-size: 16px;
+    padding: 0 10px;
+    background-color: #1C1C1C;
+    border: 1px solid #ffffff;
     position: relative;
-    left: 4px;
+    top: 30px;
+    text-align: center;
+    left: -75px;
+    z-index: 1;
+    transition: .2s;
 }
 
 .field-size {
-    border-right: 3px solid white;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    margin-top: 10px;
+    padding: 10px 0;
+}
+
+.num-smile-check {
+    padding-top: 10px;
+}
+
+.settings label {
+    font-size: 14px;
+}
+
+.top {
+    max-height: 0;
+    width: 150px;
+    visibility: hidden;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 0 10px;
+    background-color: #1C1C1C;
+    border: 1px solid #ffffff;
+    position: relative;
+    top: 30px;
+    text-align: center;
+    left: -75px;
+    z-index: 1;
+    transition: .2s;
+}
+
+.settings-active {
+    visibility: visible;
+    max-height: 200px;
+    padding: 10px;
+    transition: .5s;
 }
 
 .cardboard {

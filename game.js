@@ -139,3 +139,26 @@ function fieldSelect() {
 function numSmileSelect() {
     this.value === 'num' ? smile = 0 : smile = 1;
 }
+
+const settingsBtn = document.querySelector('.settings-btn');
+const settings = document.querySelector('.settings');
+const topBtn = document.querySelector('.top-btn');
+const topScore = document.querySelector('.top');
+const icons = document.querySelector('.icons');
+document.addEventListener('click', showSettings);
+
+function showSettings() {
+    if (!icons.contains(event.target)) {
+        settings.classList.remove('settings-active');
+        topScore.classList.remove('settings-active');
+    }
+    if (event.target === settingsBtn) {
+        settings.classList.toggle('settings-active');
+        topScore.classList.remove('settings-active');
+
+    }
+    if (event.target === topBtn) {
+        topScore.classList.toggle('settings-active');
+        settings.classList.remove('settings-active');
+    }
+}

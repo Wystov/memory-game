@@ -58,9 +58,10 @@
     background: url('./img/top.svg') center / 30px no-repeat;
 }
 
-.settings {
+.settings,
+.top {
     max-height: 0;
-    width: 150px;
+    width: 170px;
     visibility: hidden;
     overflow: hidden;
     font-size: 20px;
@@ -71,7 +72,7 @@
     position: relative;
     top: 40px;
     text-align: center;
-    left: -75px;
+    left: -85px;
     z-index: 1;
     transition: .2s;
 }
@@ -95,27 +96,30 @@
     font-size: 18px;
 }
 
-.top {
-    max-height: 0;
-    width: 150px;
-    visibility: hidden;
-    overflow: hidden;
-    font-size: 20px;
-    padding: 0 10px;
-    background-color: #1C1C1C;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    position: relative;
-    top: 40px;
-    text-align: center;
-    left: -75px;
-    z-index: 1;
-    transition: .2s;
+.top-label-1 {
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.top-label-2 {
+    border-top: 1px solid #ffffff;;
+    border-bottom: 1px solid #ffffff;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.four-num,
+.four-emo,
+.six-num,
+.six-emo {
+    text-align: left;
+    font-size: 18px;
 }
 
 .settings-active {
     visibility: visible;
-    max-height: 200px;
+    max-height: 240px;
     padding: 10px;
     transition: .5s;
 }
@@ -193,6 +197,9 @@ label {
 }
 
 @media (max-width: 500px) {
+    *{
+        letter-spacing: 1px;
+    }
     .wrapper {
         font-size: 20px;
     }

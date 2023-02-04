@@ -146,6 +146,7 @@ const topBtn = document.querySelector('.top-btn');
 const topScore = document.querySelector('.top');
 const icons = document.querySelector('.icons');
 document.addEventListener('click', showSettings);
+topBtn.addEventListener('click', showBest);
 
 function showSettings() {
     if (event.target === settingsBtn) {
@@ -162,4 +163,16 @@ function showSettings() {
         settings.classList.remove('settings-active');
         topScore.classList.remove('settings-active');
     }
+}
+
+const fourNum = document.querySelector('.four-num');
+const fourEmo = document.querySelector('.four-emo');
+const sixNum = document.querySelector('.six-num');
+const sixEmo = document.querySelector('.six-emo');
+
+function showBest() {
+    fourNum.innerHTML = `123: ${localStorage.getItem('best-8') || 'no record'}`;
+    fourEmo.innerHTML = `&#129430;&nbsp;: ${localStorage.getItem('best-18') || 'no record'}`;
+    sixNum.innerHTML = `123: ${localStorage.getItem('best-smile-8') || 'no record'}`;
+    sixEmo.innerHTML = `&#129430;&nbsp;: ${localStorage.getItem('best-smile-18') || 'no record'}`;
 }

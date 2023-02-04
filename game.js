@@ -171,8 +171,24 @@ const sixNum = document.querySelector('.six-num');
 const sixEmo = document.querySelector('.six-emo');
 
 function showBest() {
-    fourNum.innerHTML = `123: ${localStorage.getItem('best-8') || 'no record'}`;
-    fourEmo.innerHTML = `&#129430;&nbsp;: ${localStorage.getItem('best-18') || 'no record'}`;
-    sixNum.innerHTML = `123: ${localStorage.getItem('best-smile-8') || 'no record'}`;
-    sixEmo.innerHTML = `&#129430;&nbsp;: ${localStorage.getItem('best-smile-18') || 'no record'}`;
+    if (localStorage.getItem('best-8')) {
+        fourNum.innerHTML = `123&nbsp;&#10132; best ${localStorage.getItem('best-8')}`;
+    } else {
+        fourNum.innerHTML = '123&nbsp;&#10132; no record';
+    }
+    if (localStorage.getItem('best-smile-8')) {
+        fourEmo.innerHTML = `&#129430;&nbsp;&nbsp;&#10132; best ${localStorage.getItem('best-smile-8')}`;
+    } else {
+        fourEmo.innerHTML = '&#129430;&nbsp;&nbsp;&#10132; no record';
+    }
+    if (localStorage.getItem('best-18')) {
+        sixNum.innerHTML = `123&nbsp;&#10132; best ${localStorage.getItem('best-18')}`;
+    } else {
+        sixNum.innerHTML = '123&nbsp;&#10132; no record';
+    }
+    if (localStorage.getItem('best-smile-18')) {
+        sixEmo.innerHTML = `&#129430;&nbsp;&nbsp;&#10132; best ${localStorage.getItem('best-smile-18')}`;
+    } else {
+        sixEmo.innerHTML = '&#129430;&nbsp;&nbsp;&#10132; no record';
+    }
 }

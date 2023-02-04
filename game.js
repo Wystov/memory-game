@@ -148,17 +148,18 @@ const icons = document.querySelector('.icons');
 document.addEventListener('click', showSettings);
 
 function showSettings() {
-    if (!icons.contains(event.target)) {
-        settings.classList.remove('settings-active');
-        topScore.classList.remove('settings-active');
-    }
     if (event.target === settingsBtn) {
         settings.classList.toggle('settings-active');
         topScore.classList.remove('settings-active');
-
+        return;
     }
     if (event.target === topBtn) {
         topScore.classList.toggle('settings-active');
         settings.classList.remove('settings-active');
+        return;
+    }
+    if (!settings.contains(event.target) && !topScore.contains(event.target)) {
+        settings.classList.remove('settings-active');
+        topScore.classList.remove('settings-active');
     }
 }

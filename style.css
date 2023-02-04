@@ -43,19 +43,19 @@
 .icons {
     display: flex;
     justify-content: space-between;
-    min-width: 110px;
+    gap: 50px;
 }
 
 .settings-btn {
-    width: 24px;
-    height: 24px;
-    background: url('./img/settings.svg') center / 24px no-repeat;
+    width: 30px;
+    height: 30px;
+    background: url('./img/settings.svg') center / 30px no-repeat;
 }
 
 .top-btn {
-    width: 24px;
-    height: 24px;
-    background: url('./img/top.svg') center / 24px no-repeat;
+    width: 30px;
+    height: 30px;
+    background: url('./img/top.svg') center / 30px no-repeat;
 }
 
 .settings {
@@ -63,16 +63,21 @@
     width: 150px;
     visibility: hidden;
     overflow: hidden;
-    font-size: 16px;
+    font-size: 20px;
     padding: 0 10px;
     background-color: #1C1C1C;
-    border: 1px solid #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
     position: relative;
-    top: 30px;
+    top: 40px;
     text-align: center;
     left: -75px;
     z-index: 1;
     transition: .2s;
+}
+
+.settings-tip {
+    font-size: 14px;
 }
 
 .field-size {
@@ -87,7 +92,7 @@
 }
 
 .settings label {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .top {
@@ -98,9 +103,10 @@
     font-size: 20px;
     padding: 0 10px;
     background-color: #1C1C1C;
-    border: 1px solid #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
     position: relative;
-    top: 30px;
+    top: 40px;
     text-align: center;
     left: -75px;
     z-index: 1;

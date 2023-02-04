@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
     font-family: roboto, sans-serif;
     letter-spacing: 2px;
 }
@@ -42,6 +43,8 @@
 .settings {
     display: flex;
     font-size: 20px;
+    position: relative;
+    left: 4px;
 }
 
 .field-size {
@@ -76,7 +79,6 @@
     cursor: pointer;
     background-color: #36454f;
     color: #ffffff;
-    -webkit-tap-highlight-color: transparent;
     transform: rotateY(180deg);
     transition: .5s;
 }

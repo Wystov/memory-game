@@ -28,6 +28,7 @@ function dancingButton() {
 
 function shuffle() {
     cardboardContent.length = 0;
+    queue.length = 0;
     turns = 0;
     match = 0;
     prevBest.textContent = "\u00A0";
@@ -69,10 +70,10 @@ function checkFlip() {
             if (smile) {
                 if (!localStorage.getItem(`best-smile-${cardboardSize}`) || turns < best) {
                     localStorage.setItem(`best-smile-${cardboardSize}`, turns);
-                } else {
-                    if (!localStorage.getItem(`best-${cardboardSize}`) || turns < best) {
-                        localStorage.setItem(`best-${cardboardSize}`, turns);
-                    }
+                } 
+            } else {
+                if (!localStorage.getItem(`best-${cardboardSize}`) || turns < best) {
+                    localStorage.setItem(`best-${cardboardSize}`, turns);
                 }
             }
         }

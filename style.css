@@ -58,6 +58,13 @@
     background: url('./img/top.svg') center / 30px no-repeat;
 }
 
+.settings-container,
+.top-container {
+    position: relative;
+    top: 47px;
+    left: -85px;
+}
+
 .settings,
 .top {
     max-height: 0;
@@ -69,10 +76,7 @@
     background-color: #1C1C1C;
     border: 2px solid #ffffff;
     border-radius: 5px;
-    position: relative;
-    top: 40px;
     text-align: center;
-    left: -85px;
     z-index: 1;
     transition: .2s;
 }
@@ -122,6 +126,26 @@
     max-height: 240px;
     padding: 10px;
     transition: .5s;
+}
+
+.settings:before,
+.top:before {
+    content: '';
+    position: absolute;
+    left: 90px;
+    top: -8px;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffffff;
+    visibility: hidden;
+    transition: .2s;
+}
+
+.settings-active:before {
+    visibility: visible;
+    transition: .2s;
 }
 
 .cardboard {

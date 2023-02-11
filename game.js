@@ -11,10 +11,10 @@ radioContent.forEach(x => x.addEventListener('click', numSmileSelect))
 let cardboardSize = 8;
 const cardboardContent = [];
 const smileContent = ['&#128512;', '&#128513;', '&#128511;', '&#128509;',
-                      '&#128508;', '&#129409;', '&#9924;', '&#127752;',
-                      '&#127774;', '&#129430;', '&#127775;', '&#127789;',
-                      '&#127796;', '&#127797;', '&#127803;', '&#127817;',
-                      '&#128081;', '&#128110;']
+    '&#128508;', '&#129409;', '&#9924;', '&#127752;',
+    '&#127774;', '&#129430;', '&#127775;', '&#127789;',
+    '&#127796;', '&#127797;', '&#127803;', '&#127817;',
+    '&#128081;', '&#128110;']
 const queue = [];
 let turns = 0;
 let match = 0;
@@ -33,10 +33,10 @@ function shuffle() {
     match = 0;
     prevBest.textContent = "\u00A0";
     if (smile) {
-        for (let i = 0; i < cardboardSize; i++){
+        for (let i = 0; i < cardboardSize; i++) {
             cardboardContent.push(smileContent[i], smileContent[i]);
         }
-    } else { 
+    } else {
         for (let i = 1; i <= cardboardSize; i++) {
             cardboardContent.push(i, i);
         }
@@ -55,9 +55,10 @@ function flip() {
 }
 
 function checkFlip() {
-    if (queue[0] === queue[1]) { 
+    if (queue[0] === queue[1]) {
         document.querySelectorAll(`.${queue[0]}`).forEach(x => {
-            x.classList.add('flip', 'match')});
+            x.classList.add('flip', 'match')
+        });
         match += 2;
         if (match === cardboardSize * 2) {
             showTurns.textContent = `WIN IN ${turns} FLIPS!`;
@@ -70,7 +71,7 @@ function checkFlip() {
             if (smile) {
                 if (!localStorage.getItem(`best-smile-${cardboardSize}`) || turns < best) {
                     localStorage.setItem(`best-smile-${cardboardSize}`, turns);
-                } 
+                }
             } else {
                 if (!localStorage.getItem(`best-${cardboardSize}`) || turns < best) {
                     localStorage.setItem(`best-${cardboardSize}`, turns);
@@ -127,8 +128,8 @@ function createCardBoard() {
             } else if (localStorage.getItem(`best-${cardboardSize}`)) {
                 prevBest.textContent = `Previous best is ${localStorage.getItem(`best-${cardboardSize}`)}`;
             }
-            });
-            showTurns.textContent = `Flips: ${turns}`;
+        });
+        showTurns.textContent = `Flips: ${turns}`;
     }, 300);
 }
 

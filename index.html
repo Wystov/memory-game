@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Game</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="game">
-            <div class="start">New Game</div>
-            <div class="icons">
-                <div class="settings-btn">
-                    <div class="settings-container">
-                        <div class="settings">
-                            <div class="settings-tip">Start new game to apply</div>
-                            <div class="field-size">
-                                <div>Field size</div>
-                                <label>4*4
-                                    <input type="radio" name="size" value="4" checked>
-                                </label>
-                                <label>6*6
-                                    <input type="radio" name="size" value="6">
-                                </label>
-                            </div>
-                            <div class="num-smile-check">
-                                <div>Card content</div>
-                                <label>123
-                                    <input type="radio" name="num-smile" value="num" checked>
-                                </label>
-                                <label>&#129430;
-                                    <input type="radio" name="num-smile" value="smile">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="top-btn">
-                    <div class="top-container">
-                        <div class="top">
-                            <div class="top-label-1">4*4</div>
-                            <div class="four-num"></div>
-                            <div class="four-emo"></div>
-                            <div class="top-label-2">6*6</div>
-                            <div class="six-num"></div>
-                            <div class="six-emo"></div>
-                        </div>
-                    </div>
-                </div>
+  <div class="wrapper">
+    <div class="game">
+      <div class="start">New Game</div>
+      <div class="icons">
+        <div class="settings-btn">
+          <div class="settings-container">
+            <div class="settings">
+              <div class="settings-tip">Start new game to apply</div>
+              <div class="field-size">
+                <div>Field size</div>
+                <label>4*4
+                  <input type="radio" name="size" value="4" checked>
+                </label>
+                <label>6*6
+                  <input type="radio" name="size" value="6">
+                </label>
+              </div>
+              <div class="num-smile-check">
+                <div>Card content</div>
+                <label>123
+                  <input type="radio" name="num-smile" value="num" checked>
+                </label>
+                <label>&#129430;
+                  <input type="radio" name="num-smile" value="smile">
+                </label>
+              </div>
             </div>
-            <div class="cardboard"></div>
-            <div class="turns">Flips:</div>
-            <div class="prev-best"></div>
+          </div>
         </div>
+        <div class="top-btn">
+          <div class="top-container">
+            <div class="top">
+              <div class="top-label-1">4*4</div>
+              <div class="four-num"><span>123&nbsp;&#10132;</span><span></span></div>
+              <div class="four-emo"><span>&#129430;&nbsp;&#10132;</span><span></span></div>
+              <div class="top-label-2">6*6</div>
+              <div class="six-num"><span>123&nbsp;&#10132;</span><span></span></div>
+              <div class="six-emo"><span>&#129430;&nbsp;&#10132;</span><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cardboard"></div>
+      <div class="turns">Flips:</div>
+      <div class="prev-best"></div>
     </div>
-    <script src="game.js"></script>
+  </div>
+  <script type="module" src="game.js"></script>
 </body>
 </html>

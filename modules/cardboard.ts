@@ -10,7 +10,7 @@ const toggleCardboard = () => {
   prevBest.classList.toggle('prev-best-active');
 };
 
-const createCard = (el, cardboardSize, smile) => {
+const createCard = (el: any, cardboardSize: number, smile: boolean) => {
   const card = document.createElement('div');
   const className = smile ? `number-${el.slice(2, -1)}` : `number-${el}`;
   card.classList.add('card', className);
@@ -23,7 +23,7 @@ const createCard = (el, cardboardSize, smile) => {
   cardBoard.append(card);
 };
 
-const updatePrevBest = (cardboardSize, smile) => {
+const updatePrevBest = (cardboardSize: number, smile: boolean) => {
   const key = smile ? `best-smile-${cardboardSize}` : `best-${cardboardSize}`;
   const prevBestValue = localStorage.getItem(key);
   if (prevBestValue) prevBest.textContent = `Previous best is ${prevBestValue}`;

@@ -3,7 +3,7 @@ import { startBtn } from './selectors.js';
 const rotate = () => {
   let rotation = 360;
   return () => {
-    startBtn.style = `transform: rotate(${rotation}deg)`;
+    startBtn.setAttribute('style', `transform: rotate(${rotation}deg)`);
     rotation += 360;
   };
 };

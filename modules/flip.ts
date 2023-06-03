@@ -24,8 +24,8 @@ const checkFlip = () => {
   }
 };
 
-const flip = (e) => {
-  const card = e.target.closest('.card');
+const flip = (e: MouseEvent): void => {
+  const card = (e.target as HTMLElement).closest('.card') as HTMLElement;
   if (card === null) return;
   if (!card.classList.contains('flip')) {
     state.queue.push(card.classList[1]);
